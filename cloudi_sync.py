@@ -21,7 +21,7 @@ def generate_dynamic_token(fingerprint_id, pin, salt="ClouDi_SynC_2025"):
     for _ in range(128):
         _state_v = _alpha * _state_v * (1 - _state_v)
             
-    # LINE 18: Final encrypted output (outside the loop)
+    # Final encrypted output (outside the loop)
     return hashlib.sha256(str(_state_v).encode()).hexdigest()[:16].upper()
 
 # --- Simulation for Lablab.ai Demo ---
@@ -36,3 +36,4 @@ if len(u_pin) == 4:
         time.sleep(0.05)
 else:
     print("[ERROR] Invalid PIN access denied!")
+
