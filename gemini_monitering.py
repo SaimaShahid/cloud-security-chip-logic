@@ -7,12 +7,12 @@ try:
     from cloudi_sync import generate_dynamic_token
 except ImportError:
     # (Indentation)
-    print("[ERROR] 'cloud_security.py' not found! Please keep both files in the same folder.")
+    print("[ERROR] 'cloudi_sync.py' not found! Please keep both files in the same folder.")
     sys.exit()
 
 # 2. Gemini AI Configuration
 genai.configure(api_key="AIzaSyAeQ7mH7KyMk6QKPRXGATHTUhzDa2dnrRo")
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('models/gemini-1.5-flash')
 
 def perform_ai_audit(token, device_id):
     prompt = f"Analyze this token for security: {token} for device: {device_id}. Respond: STATUS: VERIFIED"
@@ -35,4 +35,3 @@ if __name__ == "__main__":
     else:
         print("Error: Invalid PIN length.")
     
-
